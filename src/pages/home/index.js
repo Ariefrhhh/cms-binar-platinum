@@ -11,7 +11,7 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <div className="px-5 pt-1">
+      <div className="px-5 pt-
         <h4>Rented Car Data Visualization</h4>
         <p>Month</p>
         <div className="d-flex">

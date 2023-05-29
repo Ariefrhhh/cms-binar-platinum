@@ -1,133 +1,187 @@
-import React, { useState } from "react";
-import { Button, Col, Form, Row } from "reactstrap";
-import Input from "../../component/input";
-import { Services } from "../../config/api-middleware";
-import { FileUploader } from "react-drag-drop-files";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Button, Col, Form, FormFeedback, FormGroup, FormText, Input, Label } from "reactstrap";
 
 
 
-// import { FileUploader } from "react-drag-drop-files";
+const Editcar= () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location)
+  const [imageErrorNotif, setImageErrorNotif] = useState("");
+  const [imageStatus, setImageStatus] = useState(false);
+  const [carCreate, setCarCreate] = useState(null);
 
-// import { useState } from "react";
-
-const Editcar = () => {
-
-  const fileTypes = ["JPEG", "PNG", "GIF"];
-  const Navigate = useNavigate();
-
-  const [file, setFile] = useState(null);
-  const handleChange = (file) => {
-    setFile(file);
+  const handleUploadClick = () => {
+    document.getElementById("imageInput").click();
   };
 
-  const [state, setState] = useState({
-    name: "",
-    category: "",
-    price: 0,
-    status: false,
-    start_rent_at: null,
-    finish_rent_at: null,
-    image: null,
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setState((previousState) => ({
-      ...previousState,
-      [name]: value,
-    }));
+  //form
+  const initialValues = {
+    nameInput: "",
+    priceInput: 0,
+    imageInput: null,
+    categoryInput: "",
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    Services()
-      .put(
-        "https://bootcamp-rent-cars.herokuapp.com/admin/car/2",
-        {
-          name: state.name,
-          category: state.category,
-          price: state.price,
-          status: state.status,
-          start_rent_at: state.start_rent_at,
-          finish_rent_at: state.finish_rent_at,
-          image: state.image
-           
-        },
-        {
-          headers: {
-            access_token: `${localStorage.getItem("ACCESS_TOKEN")}`,
-          },
-        }
-      )
-      .then((response) => {
-        console.log(response);
+  const [values, setValues] = useState(initialValues);
+
+  //populate value on first render
+  useEffect(() => {
+    const urlAPI = "https://bootcamp-rent-cars.herokuapp.com";
+    const config = {
+      headers: {
+        access_token: `${localStorage.getItem("ACCESS_TOKEN")}`,
+      },
+    };
+    axios
+      .get(`${urlAPI}/admin/car/${location.state.carId}`, config)
+      .then((res) => {
+        const tempRes = res.data;
+        setValues((values) => ({ ...values, nameInput: tempRes.name, priceInput: tempRes.price, categoryInput: tempRes.category }));
+        setCarCreate(tempRes);
       })
-      .catch((err) => console.log(err.response.data.message));
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [location.state.carId]);
+  //handle change
+  const handleInputChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
   };
 
+  const handleImageChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.files[0] });
+  };
+
+  //handle submit 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (values.imageInput === null) {
+      setImageStatus(true);
+      setImageErrorNotif("Please Upload Image");
+      return false;
+    }
+    if (values.imageInput !== null && values.imageInput.size > 2097152) {
+      setImageStatus(true);
+      setImageErrorNotif("Image File Size is Too Big");
+      return false;
+    }
+    if (values.imageInput !== null) {
+      var fname = values.imageInput.name;
+      var re = /(\.jpg|\.jpeg|\.png|\.webp)$/i;
+      if (!re.exec(fname)) {
+        setImageStatus(true);
+        setImageErrorNotif("File type is not supported!");
+        return false;
+      }
+    }
+
+    const urlAPI = "https://bootcamp-rent-cars.herokuapp.com";
+    const config = {
+      headers: {
+        access_token: `${localStorage.getItem("ACCESS_TOKEN")}`,
+      },
+    };
+    const data = new FormData();
+    data.append("name", values.nameInput);
+    data.append("category", values.categoryInput);
+    data.append("price", values.priceInput);
+    data.append("status", carCreate.status);
+    data.append("image", values.imageInput);
+
+    await axios
+      .put(`${urlAPI}/admin/car/${location.state.carId}`, data, config)
+      .then(async () => {
+        navigate("/listcar", { state: { statusAdd: true } });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
-   
-        <div style={{ backgroundColor: "#E5E5E5" }}>
-      <h5 className="p-5">Edit Car</h5>
-      <Row>
-        <Form onSubmit={handleSubmit}>
-          <Col md={5} className="d-flex flex-column gap-4">
-            <label className="form-label">
-              Nama/Tipe Mobil
-              <Input
-                className="form-control-sm"
-                style={{ height: "36px", width: "339px" }}
-                onChange={handleInputChange}
-                name="name"
-                placeholder="Input Nama/Tipe Mobil"
-              />
-            </label>
-            <label className="form-label">
-              Harga
-              <Input
-                className="form-control-sm"
-                style={{ height: "36px", width: "339px" }}
-                onChange={handleInputChange}
-                name="price"
-                placeholder="Input Harga Mobil"
-              />
-            </label>
-            <div className="uploader">
-              <label className="form-label">
-                Foto
-                <FileUploader
-                  multiple={true}
-                  handleChange={handleChange}
-                  name="file"
-                  types={fileTypes}
-                />
-              </label>
-              <p style={{paddingLeft:"15rem"}}>{file ? `File name: ${file[0].name}` : "File Size Max 2MB"}</p>
-            </div>
-            <label className="form-label">
-              Kategori
-              <Input
-                className="form-control-sm"
-                style={{ height: "36px", width: "339px" }}
-                onChange={handleInputChange}
-                name="Category"
-                placeholder="Kategori"
-              />
-            </label>
+    <div>
+    <div className="ps-5">
+        <h1 className="p-5">Edit Car</h1>
+    <Form className="ps-5" onSubmit={handleSubmit}>
+        <FormGroup row>
+          <Label md={2}>
+          Nama/Tipe Mobil<sup>*</sup>
+          </Label>
+          <Col md={10}>
+          <Input  required type="input" name="nameInput" id="nameInput" className="datainput" placeholder="Input Nama/Tipe Mobil" value={values.nameInput || ""} onChange={handleInputChange}/>
           </Col>
-          <div className="d-flex gap-3 pt-5 ps-5">
-            <Button onClick={() => Navigate("/ListCar")}>Cancel</Button>
-            <Button type="submit" style={{ backgroundColor: "#0D28A6" }}>
-              Save
-            </Button>
-          </div>
-        </Form>
-      </Row>
+        </FormGroup>
+        <FormGroup row>
+          <Label md={2}>
+          Harga<sup>*</sup>
+          </Label>
+          <Col md={10}>
+          <Input required type="number" min="0" name="priceInput" id="priceInput" className="datainput" placeholder="Input Harga Sewa Mobil" value={values.priceInput || 0} onChange={handleInputChange}/>
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label md={2}>
+          Foto<sup>*</sup>
+          </Label>
+          <Col md={10}>
+          <Input  invalid={imageStatus} required type="file" name="imageInput" className="datainput" placeholder="Upload Foto Mobil" accept=".png, .jpg, .jpeg, .webp"  onClick={handleUploadClick} onChange={handleImageChange}/>
+          </Col>
+          <FormText id="imageUploadHelp" muted>
+                File size max. 2MB
+              </FormText>
+              <FormFeedback type="invalid">{imageErrorNotif}</FormFeedback>
+        </FormGroup>
+        <FormGroup row>
+          <Label md={2}>
+          Kategori<sup>*</sup>
+          </Label>
+          <Col md={10}>
+          <Input  required name="categoryInput" className="datainput" placeholder="Pilih Kategori Mobil" value={values.categoryInput || "placeholder"} onChange={handleInputChange}>
+          <option value="placeholder">Pilih Kategori Mobil</option>
+              <option value="small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="large">Large</option>
+          </Input>
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+              <Label md={2}>
+                UpdatedAt
+              </Label>
+              <Col md={10}>
+             {carCreate !== null ? carCreate.updatedAt.substring(0, 10) : "-"}
+              </Col>
+            </FormGroup>
+            <FormGroup row >
+              <Label md={2}>
+                CreatedAt
+              </Label>
+              <Col md={10}>
+              <div>{carCreate !== null ? carCreate.createdAt.substring(0, 10) : "-"}</div>
+              </Col>
+            </FormGroup>
+           <div className="pt-5">
+            <div className="d-flex gap-3 ">
+            <Button className="cancelButton" onClick={()=>navigate("/Listcar")} outline>
+                Cancel
+              </Button>
+              <Button className="submitButton" htmlFor="formSubmit" tabIndex="0">
+                Save
+              </Button>
+              </div>
+              </div>
+              </Form>
+      </div>
     </div>
- 
   );
 };
 
 export default Editcar;
+    

@@ -38,7 +38,7 @@ const Header = () => {
             <DropdownToggle nav caret>
               Jhon Doe
             </DropdownToggle>
-            <DropdownMenu right>
+            <DropdownMenu end>
               <DropdownItem
                 onClick={() => {
                   localStorage.removeItem("ACCESS_TOKEN");

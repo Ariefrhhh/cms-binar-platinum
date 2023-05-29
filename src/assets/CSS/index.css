@@ -1,5 +1,6 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
+
+.listcar{
+  background-color: #e5e5e5;
 }
 
 .header {
@@ -41,12 +42,6 @@ height: 36px;
     height: 2rem;
 }
 
-.sidebar-nav {
-    height: 100vh;
-    width: 70px;
-    border: 1px solid black;
-    background-color: rgb(0, 0, 73);
-}
 
 .template-areas{
     display: flex;
@@ -63,35 +58,97 @@ height: 36px;
     object-fit: fill;
 }
 
+
 .form-login {
     width:370px;
     height: 39px
+}
+
+.label .sup{
+color: red;
 }
 
 .barchart {
     height: 5rem;
 }
 
+
 .img-contain {
     max-width: 100%;
+    width: fit-content;
+    height:200px
   }
 
   .card-image-car {
-    height:200px;
+    height:fit-content;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 30px;
     padding-top: 10px;
   }
 
-  .card-content-desc {
-    padding-top: 60px;
-  }
   
-  .card-button {
+  .cardbutton {
+    font-family: Arial;
+    font-weight: 800;
     width: 144px;
     height:48px;
     border-radius: 2px;
+  }
+
+  .deleteModalImage {
+    width: 153px;
+    height: 121px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  
+  .modalTitle {
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .modalDesc {
+    font-family: "Arial";
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .modalActionArea .yesButton {
+    padding: 8px 12px;
+    width: 87px;
+    height: 36px;
+    background: #0d28a6;
+    border-radius: 2px;
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    transition: 0.3s ease;
+  }
+.modalActionArea .noButton {
+    padding: 8px 12px;
+    width: 87px;
+    height: 36px;
+    outline: #0d28a6;
+    border-radius: 2px;
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #0d28a6;
+    transition: 0.3s ease;
   }
 
   .form-label{
@@ -119,3 +176,25 @@ height: 36px;
   border-radius:4px
 }  
 
+#componentBarGraph .barGraphContainer .titleAreaBarGraph .titleBarGraph {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  display: inline-block;
+  overflow: visible;
+  margin: 0px 15px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+#componentBarGraph > .container-fluid {
+  padding: 0px;
+}
+
+#componentBarGraph .barGraphArea {
+  padding-right: 30px;
+}

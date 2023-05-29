@@ -1,0 +1,6 @@
+.sidebar-nav {
+    height: 100vh;
+    width: 70px;
+    border: 1px solid black;
+    background-color: darkblue !important;
+}
