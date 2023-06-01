@@ -1,6 +1,7 @@
 .sidebar-nav {
     height: 100vh;
-    width: 70px;
-    border: 1px solid black;
-    background-color: darkblue !important;
+    width: 100px;
+    padding-top: 20px;
+    display: flex;
+    background-color: #0D28A6;
 }

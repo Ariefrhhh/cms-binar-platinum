@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Button, Col, Form, FormFeedback, FormGroup, FormText, Input, Label } from "reactstrap";
+import { Breadcrumb, BreadcrumbItem, Button, Col, Form, FormFeedback, FormGroup, FormText, Input, Label } from "reactstrap";
+import "../../assets/CSS/editcar.css"
 
 
 
@@ -108,11 +109,24 @@ const Editcar= () => {
   return (
     <div>
     <div className="ps-5">
+    <div className="ms-1 ps-5 pt-5">
+  <Breadcrumb>
+    <BreadcrumbItem className="breadcrumbitemclick" onClick={()=>navigate("/listcar")}> 
+        Cars     
+    </BreadcrumbItem>
+    <BreadcrumbItem className="breadcrumbitemclick" onClick={()=>navigate("/listcar")}>
+        List Car    
+    </BreadcrumbItem>
+    <BreadcrumbItem active>
+        Edit Car     
+    </BreadcrumbItem>
+  </Breadcrumb>
+  </div>
         <h1 className="p-5">Edit Car</h1>
     <Form className="ps-5" onSubmit={handleSubmit}>
         <FormGroup row>
           <Label md={2}>
-          Nama/Tipe Mobil<sup>*</sup>
+          Nama/Tipe Mobil<sup className="star">*</sup>
           </Label>
           <Col md={10}>
           <Input  required type="input" name="nameInput" id="nameInput" className="datainput" placeholder="Input Nama/Tipe Mobil" value={values.nameInput || ""} onChange={handleInputChange}/>
@@ -120,7 +134,7 @@ const Editcar= () => {
         </FormGroup>
         <FormGroup row>
           <Label md={2}>
-          Harga<sup>*</sup>
+          Harga<sup className="star">*</sup>
           </Label>
           <Col md={10}>
           <Input required type="number" min="0" name="priceInput" id="priceInput" className="datainput" placeholder="Input Harga Sewa Mobil" value={values.priceInput || 0} onChange={handleInputChange}/>
@@ -128,7 +142,7 @@ const Editcar= () => {
         </FormGroup>
         <FormGroup row>
           <Label md={2}>
-          Foto<sup>*</sup>
+          Foto<sup className="star">*</sup>
           </Label>
           <Col md={10}>
           <Input  invalid={imageStatus} required type="file" name="imageInput" className="datainput" placeholder="Upload Foto Mobil" accept=".png, .jpg, .jpeg, .webp"  onClick={handleUploadClick} onChange={handleImageChange}/>
@@ -140,7 +154,7 @@ const Editcar= () => {
         </FormGroup>
         <FormGroup row>
           <Label md={2}>
-          Kategori<sup>*</sup>
+          Kategori<sup className="star">*</sup>
           </Label>
           <Col md={10}>
           <Input  required name="categoryInput" className="datainput" placeholder="Pilih Kategori Mobil" value={values.categoryInput || "placeholder"} onChange={handleInputChange}>

@@ -1,0 +1,138 @@
+.carimage {
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    height:300px
+  }
+
+  .card-image-car {
+    height:fit-content;
+    padding: 24px
+  }
+
+  .pagetitle{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .bodytext{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .titletext{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .addnewbutton{
+    background-color: #0D28A6;
+    border-radius: 2px;
+    font-family: 'Arial';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px 12px;
+  }
+  
+  .deletebutton {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    width: 143.5px;
+    height: 48px;
+    border-radius: 2px;
+    
+  }
+
+  .editbutton {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    width: 143.5px;
+    height: 48px;
+    border-radius: 2px;
+    background-color: #5CB85F;
+  }
+
+
+  .filter-button{
+    background-color: #CFD4ED;
+    color:#0D28A6;
+    border-radius: 2px;
+    border-color: #0d28a6;
+  }
+
+
+  .deleteModalImage {
+    width: 153px;
+    height: 121px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  
+  .modalTitle {
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .modalDesc {
+    font-family: "Arial";
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .modalActionArea .yesButton {
+    padding: 8px 12px;
+    width: 87px;
+    height: 36px;
+    background: #0d28a6;
+    border-radius: 2px;
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    transition: 0.3s ease;
+  }
+
+
+.modalActionArea .noButton {
+    padding: 8px 12px;
+    width: 87px;
+    height: 36px;
+    outline: #0d28a6;
+    border-radius: 2px;
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #0d28a6;
+    transition: 0.3s ease;
+  }
+  
+ 

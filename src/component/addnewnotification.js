@@ -1,17 +1,15 @@
 import React from "react";
+import { Toast, ToastBody } from "reactstrap";
 
 const Addnewnotification = () => {
     return(
-        <div className="addnewnotification">
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div lg={6} className="notificationcontainer">
-                        <h3>Data Berhasil Disimpan</h3>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        <div className="p-3 bg-success my-2 rounded">
+        <Toast>
+          <ToastBody>
+            Data Berhasil Disimpan!
+          </ToastBody>
+        </Toast>
+      </div>
     )
 }
 
