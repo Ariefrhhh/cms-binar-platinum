@@ -1,0 +1,145 @@
+/* Start of Component Order Table In CSS */
+
+#componentOrderTable .orderTable thead tr {
+  background: #cfd4ed;
+  border-radius: 2px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+
+/* Start of Component Order Table In CSS */
+
+/* Start of Section Order Table In CSS */
+
+#sectionOrderTable .row > .col-lg-12 {
+  padding: 0px;
+}
+
+#sectionOrderTable .titleArea {
+  height: 24px;
+  border-left: solid 4px #0d28a6;
+  padding: 0 8px;
+  margin-bottom: 18px;
+}
+
+#sectionOrderTable .titleArea .titleText {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  margin-bottom: 0px;
+}
+
+#sectionOrderTable .orderTableTitle {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+  margin-bottom: 24px;
+}
+
+#sectionOrderTable .navigationFooter {
+  margin-bottom: 50px;
+}
+
+#sectionOrderTable .formTitle {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+#sectionOrderTable #orderFilterForm {
+  margin-top: 16px;
+}
+
+#sectionOrderTable #orderFilterForm .limitSide {
+  margin-right: 24px;
+}
+
+#sectionOrderTable #orderFilterForm .limitInput,
+#sectionOrderTable #orderFilterForm .jumpInput {
+  width: 122px;
+  height: 38px;
+  padding: 9px 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 2px 0px 0px 2px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #151515;
+  position: relative;
+}
+
+#sectionOrderTable #orderFilterForm .limitInput:focus,
+#sectionOrderTable #orderFilterForm .jumpInput:focus {
+  box-shadow: 0 0 20px -5px rgb(0 0 0 / 25%);
+}
+
+#sectionOrderTable #orderFilterForm .submitButton {
+  background: #0d28a6;
+  border-radius: 0px 2px 2px 0px;
+  text-align: center;
+  padding: 8px 12px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+  transition: 0.3s ease;
+  height: 38px;
+}
+#sectionOrderTable #orderFilterForm .submitButton:hover {
+  background: #5974ec;
+}
+
+#sectionOrderTable #orderPagination {
+  margin-top: 42px;
+  margin-bottom: 0px;
+}
+
+#sectionOrderTable #orderPagination .page-item .page-link {
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #8a8a8a;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+#sectionOrderTable #orderPagination .page-item .page-link:focus {
+  border: 1px solid #d0d0d0;
+  box-shadow: none;
+}
+#sectionOrderTable #orderPagination .page-item .page-link:hover {
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  background: #cfd4ed;
+  color: #0d28a6;
+}
+
+#sectionOrderTable #orderPagination .page-item.active .page-link {
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  background: #cfd4ed;
+  color: #0d28a6;
+}
+
+/* END of Section Order Table In CSS */

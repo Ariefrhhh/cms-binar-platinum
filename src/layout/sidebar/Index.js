@@ -28,7 +28,7 @@ const SideBar = () => {
       <div className="container-fluid sidebar-nav">
         <div className="row">
           <div className="col d-flex flex-column align-items-center left-side">
-            <div><img src={cmslogo} alt="logo"/></div>
+            <div ><img className="pb-4" src={cmslogo} alt="logo"/></div>
             {menuItem?.map((item, index) => (
               <NavLink to={item.path} key={index} className={({ isActive }) => (isActive ? activeClassName : "sidebar-link")}>
                 <div className="icon-image text-center">

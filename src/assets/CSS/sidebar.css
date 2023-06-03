@@ -5,3 +5,8 @@
     display: flex;
     background-color: #0D28A6;
 }
+
+.menu-title{
+    color: white;
+    text-decoration: none;
+}

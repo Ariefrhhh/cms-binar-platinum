@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, NavLink } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, Button, Col, Form, FormFeedback, FormGroup, FormText, Input, Label } from "reactstrap";
 import "../../assets/CSS/editcar.css"
 
@@ -106,9 +106,18 @@ const Editcar= () => {
       });
   };
 
+  let activeClassName = "menuItemActive";
+
   return (
-    <div>
-    <div className="ps-5">
+    <div className="container-fluid">
+    <div className="row">
+      <Col className="col-lg-2 leftSidebar">
+        <h2 className="pageTitle">CARS</h2>
+        <NavLink to="#listcar" className={({ isActive }) => (isActive ? activeClassName : "menuItem")}>
+          List Car
+        </NavLink>
+      </Col>
+      <Col lg={10}>
     <div className="ms-1 ps-5 pt-5">
   <Breadcrumb>
     <BreadcrumbItem className="breadcrumbitemclick" onClick={()=>navigate("/listcar")}> 
@@ -122,8 +131,9 @@ const Editcar= () => {
     </BreadcrumbItem>
   </Breadcrumb>
   </div>
+  <div>
         <h1 className="p-5">Edit Car</h1>
-    <Form className="ps-5" onSubmit={handleSubmit}>
+    <Form className="ps-0" onSubmit={handleSubmit}>
         <FormGroup row>
           <Label md={2}>
           Nama/Tipe Mobil<sup className="star">*</sup>
@@ -192,6 +202,8 @@ const Editcar= () => {
               </div>
               </div>
               </Form>
+              </div>
+              </Col>
       </div>
     </div>
   );

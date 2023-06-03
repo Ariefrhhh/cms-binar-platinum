@@ -11,7 +11,7 @@ import Input from "../../component/input";
 
 const Header = () => {
   return (
-    <div>
+    <div> 
       <div className="header d-flex gap-5 ps-5 pe-5">
         <div className="d-flex justify-content-center align-items-center">
           <img className="logo" src={logo} alt="logo" />

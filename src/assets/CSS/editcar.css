@@ -69,4 +69,11 @@
         text-decoration: underline;
       }
 
-      
+      .pageTitle {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #8A8A8A
+      }

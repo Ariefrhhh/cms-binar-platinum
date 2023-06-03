@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 // import { Form } from "react-bootstrap";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Button, Col, Form, FormFeedback, FormGroup, FormText, Input, Label } from "reactstrap";
+import { NavLink, useNavigate } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem, Button, Col, Form, FormFeedback, FormGroup, FormText, Input, Label } from "reactstrap";
 import "../../assets/CSS/addnewcar.css"
 
 
@@ -114,62 +114,82 @@ const AddNewCarForm = () => {
       });
   };
 
+   let activeClassName = "menuItemActive";
+
   return (
-    <div>
-    <div className="ps-5">
-        <h1 className="p-5">Add New Car</h1>
-    <Form className="ps-5" onSubmit={handleSubmit}>
-          <FormGroup row>
-            <Label className="labeltext" md={2}>
-              Nama/Tipe Mobil<sup className="star">*</sup >
-            </Label>
-            <Col md={10}>
-            <Input required type="input" name="nameInput" id="nameInput" className="datainput" placeholder="Input Nama/Tipe Mobil" invalid={nameInputStatus} onChange={handleInputChange}></Input>
+    <div className="container-fluid" style={{backgroundColor:"#E5E5E5"}}>
+    <div className="row">
+      <Col lg={2} className="leftSidebar ps-3 pt-5" >
+        <h2 className="pageTitle">CARS</h2>
+        <NavLink to="#listcar" className={({ isActive }) => (isActive ? activeClassName : "menuItem")} p-5>
+          List Car
+        </NavLink>
+      </Col>
+      <Col lg={10} >
+        <div className="ms-5 ps-5 pt-5">
+          <Breadcrumb>
+            <BreadcrumbItem className="breadcrumbitemclick" onClick={() => navigate("/listcar")}>
+              Cars
+            </BreadcrumbItem>
+            <BreadcrumbItem className="breadcrumbitemclick" onClick={() => navigate("/listcar")}>
+              List Car
+            </BreadcrumbItem>
+            <BreadcrumbItem active>
+              Add New Car
+            </BreadcrumbItem>
+          </Breadcrumb>
+        </div>
+        <div className="ps-5">
+          <h1 className="p-5">Add New Car</h1>
+          <Form className="ps-5" onSubmit={handleSubmit}>
+            <FormGroup row>
+              <Label className="labeltext" md={2}>
+                Nama/Tipe Mobil<sup className="star">*</sup>
+              </Label>
+              <Col md={10}>
+                <Input required type="input" name="nameInput" id="nameInput" className="datainput" placeholder="Input Nama/Tipe Mobil" invalid={nameInputStatus} onChange={handleInputChange}></Input>
               </Col>
-          </FormGroup >
-          <FormGroup row>
-            <Label className="labeltext" md={2}>
-            Harga<sup className="star">*</sup >
-            </Label>
-            <Col md={10}>
-            <Input  required type="number" min="0" name="priceInput" id="priceinput" className="datainput" placeholder="Input Harga Sewa Mobil" invalid={priceInputStatus} onChange={handleInputChange}/>
-            <FormFeedback type="invalid">Silahkan isi Harga!</FormFeedback>
-            </Col>
-            </FormGroup >
+            </FormGroup>
             <FormGroup row>
-            <Label className="labeltext" md={2}>
-            Foto<sup className="star">*</sup >
-            </Label>
-            <Col md={10}>
-            <Input  required type="file" name="imageInput" id="imageInput" className="datainput" placeholder="Upload Foto Mobil" invalid={imageStatus} accept=".png, .jpg, .jpeg, .webp"  onClick={handleUploadClick} onChange={handleImageChange}/>
-              {/* <Button type="button" className="fileInputFake d-flex justify-content-between align-items-center" onClick={handleUploadClick}>
-                <p>{values.imageInput ? values.imageInput.name : "Upload Foto Mobil"}</p>
-              </Button> */}
-              <FormText muted>
-                File size max. 2MB
-              </FormText>
-              <FormFeedback type="invalid">{imageErrorNotif}</FormFeedback>
-            </Col>
-            </FormGroup >
+              <Label className="labeltext" md={2}>
+                Harga<sup className="star">*</sup>
+              </Label>
+              <Col md={10}>
+                <Input required type="number" min="0" name="priceInput" id="priceinput" className="datainput" placeholder="Input Harga Sewa Mobil" invalid={priceInputStatus} onChange={handleInputChange} />
+                <FormFeedback type="invalid">Silahkan isi Harga!</FormFeedback>
+              </Col>
+            </FormGroup>
             <FormGroup row>
-            <Label className="labeltext" md={2}>
-            Kategori<sup className="star">*</sup >
-            </Label>
-            <Col md={10}>
-            <Input invalid={categoryInputStatus} type="select" required name="categoryInput" id="categoryInput" className="datainput" placeholder="Pilih Kategori Mobil" onChange={handleInputChange}>
-                <option value="placeholder" disabled>Pilih Kategori Mobil</option>
-                <option value="small">Small</option>
-                <option value="Medium">Medium</option>
-                <option value="large">Large</option>
-            </Input>
-            <FormFeedback type="invalid">Silahkan pilih kategori!</FormFeedback>
-            </Col>
-            </FormGroup >
+              <Label className="labeltext" md={2}>
+                Foto<sup className="star">*</sup>
+              </Label>
+              <Col md={10}>
+                <Input required type="file" name="imageInput" id="imageInput" className="datainput" placeholder="Upload Foto Mobil" invalid={imageStatus} accept=".png, .jpg, .jpeg, .webp" onClick={handleUploadClick} onChange={handleImageChange} />
+                <FormText muted>
+                  File size max. 2MB
+                </FormText>
+                <FormFeedback type="invalid">{imageErrorNotif}</FormFeedback>
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Label className="labeltext" md={2}>
+                Kategori<sup className="star">*</sup>
+              </Label>
+              <Col md={10}>
+                <Input invalid={categoryInputStatus} type="select" required name="categoryInput" id="categoryInput" className="datainput" placeholder="Pilih Kategori Mobil" onChange={handleInputChange}>
+                  <option value="placeholder" disabled>Pilih Kategori Mobil</option>
+                  <option value="small">Small</option>
+                  <option value="Medium">Medium</option>
+                  <option value="large">Large</option>
+                </Input>
+                <FormFeedback type="invalid">Silahkan pilih kategori!</FormFeedback>
+              </Col>
+            </FormGroup>
             <FormGroup row>
               <Label className="labeltext" md={2}>
                 UpdatedAt
               </Label>
-              <Col md={10}>
+                <Col md={10}>
                 -
               </Col>
             </FormGroup>
@@ -181,19 +201,21 @@ const AddNewCarForm = () => {
                 -
               </Col>
             </FormGroup>
-            <div className="pt-5">
-            <div className="d-flex gap-3 ">
-            <Button className="cancelButton" onClick={()=>navigate("/Listcar")} outline>
-                Cancel
-              </Button>
-              <Button className="submitButton" htmlFor="formSubmit" tabIndex="0">
-                Save
-              </Button>
+            <div className="py-4">
+              <div className="d-flex gap-3">
+                <Button className="cancelButton" onClick={() => navigate("/Listcar")} outline>
+                  Cancel
+                </Button>
+                <Button className="submitButton" htmlFor="formSubmit" tabIndex="0">
+                  Save
+                </Button>
               </div>
-              </div>
+            </div>
           </Form>
-          </div>
         </div>
+      </Col>
+    </div>
+  </div>
           );
         };
         

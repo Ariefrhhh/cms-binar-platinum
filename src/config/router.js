@@ -1,5 +1,5 @@
 import CarList from "../pages/List-car";
-import Home from "../pages/home";
+import Home from "../pages/home/DashboardPage";
 import Login from "../pages/login";
 import Addnewcar from "../pages/add-new-car";
 import Editcar from "../pages/edit-car";
@@ -14,13 +14,13 @@ export const publicrouting = (props) => {
 }
 
 export const privaterouting = (props) => {
-    const carId = 1;
+  
     return [
         { index: true, path: '/home', element: <Home/> },
         { index: true, path: '/listcar', element: <CarList/> },
         { index: true, path: '/addnewcar', element: <Addnewcar/> },
         // { index: true, path: '/tes', element: <Tes/> },
-        { index: true, path: '/editcar', element: <Editcar carId={carId}   /> },
+        { index: true, path: '/editcar', element: <Editcar /> },
         { index: true, path: '*', element: <div>Halaman Not Found</div> },
     ]
 }

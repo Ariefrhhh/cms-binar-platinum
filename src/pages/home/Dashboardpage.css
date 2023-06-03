@@ -1,0 +1,193 @@
+/* Start of Page Dashboard In CSS */
+
+#pageDashboard {
+  background: #f4f5f7;
+}
+
+#pageDashboard .leftSidebar {
+  background: #fff;
+  padding: 35px 0px;
+  min-height: calc(100vh - 70px);
+}
+
+#pageDashboard .rightContent {
+  padding: 32px 25px;
+}
+
+#pageDashboard .leftSidebar .pageTitle {
+  padding: 0px 24px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #8a8a8a;
+}
+
+#pageDashboard .leftSidebar .menuItem {
+  width: 100%;
+  display: block;
+  padding: 11px 24px;
+  background: #fff;
+  background: #cfd4ed;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #151515;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+#pageDashboard .leftSidebar .menuItem:hover {
+  background: #cfd4ed;
+}
+#pageDashboard .leftSidebar .menuItemActive {
+  width: 100%;
+  display: block;
+  padding: 11px 24px;
+  background: #cfd4ed;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #151515;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+#pageDashboard .leftSidebar .menuItemActive:hover {
+  color: #140085;
+}
+
+#pageDashboard .rightContent .breadcrumb {
+  margin-bottom: 58px;
+}
+
+#pageDashboard .rightContent .breadcrumb .breadcrumbRoot {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+  margin-right: 4px;
+  margin-bottom: 0px;
+}
+
+#pageDashboard .rightContent .breadcrumb .breadcrumbArrow {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+#pageDashboard .rightContent .breadcrumb .breadcrumbCurrent {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+  color: #222222;
+  margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 450px) {
+  #pageDashboard .leftSidebar {
+    background: #fff;
+    padding: 35px 0px;
+    min-height: initial;
+  }
+}
+
+/* End of Page Dashboard In CSS */
+
+/* Start of Section Bar Graph In CSS */
+
+#sectionBarGraph {
+  margin-bottom: 84px;
+}
+
+#sectionBarGraph .row > .col-lg-12 {
+  padding: 0px;
+}
+
+#sectionBarGraph .titleArea {
+  height: 24px;
+  border-left: solid 4px #0d28a6;
+  padding: 0 8px;
+  margin-bottom: 18px;
+}
+
+#sectionBarGraph .titleArea .titleText {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  margin-bottom: 0px;
+}
+
+#sectionBarGraph .formTitle {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+#sectionBarGraph #monthFilterForm {
+  margin-bottom: 54px;
+}
+
+#sectionBarGraph #monthFilterForm .monthInput {
+  width: 122px;
+  height: 38px;
+  padding: 9px 12px;
+  border: 1px solid #d0d0d0;
+  background: #ffffff;
+  border-radius: 2px 0px 0px 2px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #151515;
+  position: relative;
+}
+
+#sectionBarGraph #monthFilterForm .monthInput:focus {
+  box-shadow: 0 0 20px -5px rgb(0 0 0 / 25%);
+}
+
+#sectionBarGraph
+  #monthFilterForm
+  .monthInput::-webkit-calendar-picker-indicator {
+  padding-left: 100px;
+  position: absolute;
+  top: 9px;
+  right: 5px;
+  cursor: pointer;
+}
+
+#sectionBarGraph #monthFilterForm .submitButton {
+  background: #0d28a6;
+  border-radius: 0px 2px 2px 0px;
+  text-align: center;
+  padding: 8px 12px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+  transition: 0.3s ease;
+  height: 38px;
+}
+#sectionBarGraph #monthFilterForm .submitButton:hover {
+  background: #5974ec;
+}
+
+/* End of Section Bar Graph In CSS */
