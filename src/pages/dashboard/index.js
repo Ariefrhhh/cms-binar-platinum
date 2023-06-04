@@ -20,7 +20,7 @@ const Dashboard = () => {
       ...values,
       [e.target.name]: e.target.value,
     });
-    // console.log(values.monthInput); cek isi value onChange
+   
   };
 
   const handleSubmit = (e) => {
@@ -28,7 +28,7 @@ const Dashboard = () => {
     const urlAPI = "https://bootcamp-rent-cars.herokuapp.com";
     const config = {
       headers: {
-        access_token: JSON.parse(localStorage.getItem("accessToken")),
+        access_token: `${localStorage.getItem("ACCESS_TOKEN")}`,
       },
     };
 
