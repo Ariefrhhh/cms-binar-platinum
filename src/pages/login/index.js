@@ -23,7 +23,7 @@ const Login = () =>
         e.preventDefault()
         Services().post('https://bootcamp-rent-cars.herokuapp.com/admin/auth/login', { ...state }).then(response => {
             localStorage.setItem("ACCESS_TOKEN", response?.data?.access_token)
-            window.location.replace('/home')
+            window.location.replace('/dashboard')
             console.log(response)
         }).catch(err => console.log(err.response.data.message))
     }
