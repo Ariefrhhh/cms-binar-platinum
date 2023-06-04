@@ -6,7 +6,6 @@
 
 #pageDashboard .leftSidebar {
   background: #fff;
-  padding: 35px 0px;
   min-height: calc(100vh - 70px);
 }
 

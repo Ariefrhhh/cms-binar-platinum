@@ -1,0 +1,17 @@
+.addnewnotification{
+    position: relative;
+    left: 30rem;
+    top: 1rem;
+    width: 550px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+        left: 30rem;
+    top: 1rem;
+}
+
+.toastbody{
+    display: flex;
+    justify-content: center;
+    
+}

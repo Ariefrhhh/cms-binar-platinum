@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-import "./Dashboardpage.css";
-import { Form, Button, FormGroup, Input, Breadcrumb, BreadcrumbItem } from "reactstrap";
+import "../../assets/CSS/Dashboardpage.css";
+import { Form, Button, FormGroup, Input, Breadcrumb, BreadcrumbItem, Col } from "reactstrap";
 import BarGraph from "../../component/bargraph";
 import SectionTableComp from "../../component/SectionTableComp";
 
 
-const Home = () => {
+const Dashboard = () => {
   const initialValues = {
     monthInput: null,
   };
@@ -51,7 +51,7 @@ const Home = () => {
     <main id="pageDashboard">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-lg-2 leftSidebar">
+          <Col lg={2} className="leftSidebar pt-5">
             <h2 className="pageTitle">DASHBOARD</h2>
             <NavLink
               to="#dashboard"
@@ -61,8 +61,8 @@ const Home = () => {
             >
               Dashboard
             </NavLink>
-          </div>
-          <div className="col-lg-10 rightContent">
+          </Col>
+          <Col lg={10} className="rightContent">
           <div className="  pt-5">
   <Breadcrumb>
     <BreadcrumbItem> 
@@ -117,11 +117,11 @@ const Home = () => {
               </div>
             </section>
             <SectionTableComp />
-          </div>
+          </Col>
         </div>
       </div>
     </main>
   );
 };
 
-export default Home;
+export default Dashboard;

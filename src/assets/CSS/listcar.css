@@ -134,5 +134,51 @@
     color: #0d28a6;
     transition: 0.3s ease;
   }
-  
+
+.leftSidebar {
+  padding: 0;
+  background-color: b
+}
+
+.menuItem {
+  font-family: 'Arial';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 20px;
+color: #151515;
+text-decoration: none;
+
+
+}
+
+.menuItemActive { 
+  width: 100%;
+  display: block;
+  padding: 11px 24px;
+  background: #fff;
+  background: #cfd4ed;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #151515;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.rightcontent{
+  padding: 0  ;
+}
+
+.pageTitle{
+  padding: 0px 24px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #8a8a8a;
+}
  

@@ -119,9 +119,9 @@ const AddNewCarForm = () => {
   return (
     <div className="container-fluid" style={{backgroundColor:"#E5E5E5"}}>
     <div className="row">
-      <Col lg={2} className="leftSidebar ps-3 pt-5" >
+      <Col lg={2} className="leftSidebar" >
         <h2 className="pageTitle">CARS</h2>
-        <NavLink to="#listcar" className={({ isActive }) => (isActive ? activeClassName : "menuItem")} p-5>
+        <NavLink to="#listcar" className={({ isActive }) => (isActive ? activeClassName : "menuItem")}>
           List Car
         </NavLink>
       </Col>

@@ -133,7 +133,7 @@ const Editcar= () => {
   </div>
   <div>
         <h1 className="p-5">Edit Car</h1>
-    <Form className="ps-0" onSubmit={handleSubmit}>
+    <Form className="ps-5" onSubmit={handleSubmit}>
         <FormGroup row>
           <Label md={2}>
           Nama/Tipe Mobil<sup className="star">*</sup>
@@ -155,19 +155,19 @@ const Editcar= () => {
           Foto<sup className="star">*</sup>
           </Label>
           <Col md={10}>
-          <Input  invalid={imageStatus} required type="file" name="imageInput" className="datainput" placeholder="Upload Foto Mobil" accept=".png, .jpg, .jpeg, .webp"  onClick={handleUploadClick} onChange={handleImageChange}/>
-          </Col>
+          <Input  invalid={imageStatus} required type="file" id="imageInput" name="imageInput" className="datainput" placeholder="Upload Foto Mobil" accept=".png, .jpg, .jpeg, .webp"  onClick={handleUploadClick} onChange={handleImageChange}/>
           <FormText id="imageUploadHelp" muted>
                 File size max. 2MB
               </FormText>
               <FormFeedback type="invalid">{imageErrorNotif}</FormFeedback>
+              </Col>
         </FormGroup>
         <FormGroup row>
           <Label md={2}>
           Kategori<sup className="star">*</sup>
           </Label>
           <Col md={10}>
-          <Input  required name="categoryInput" className="datainput" placeholder="Pilih Kategori Mobil" value={values.categoryInput || "placeholder"} onChange={handleInputChange}>
+          <Input  required name="categoryInput" type="select" id="categoryInput" className="datainput" placeholder="Pilih Kategori Mobil" value={values.categoryInput || "placeholder"} onChange={handleInputChange}>
           <option value="placeholder">Pilih Kategori Mobil</option>
               <option value="small">Small</option>
               <option value="Medium">Medium</option>
