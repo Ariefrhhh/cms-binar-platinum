@@ -93,7 +93,7 @@ const SectionTableComp = () => {
     const urlAPI = "https://bootcamp-rent-cars.herokuapp.com";
     const config = {
       headers: {
-        access_token: JSON.parse(localStorage.getItem("ACCESS_TOKEN")),
+        access_token: (localStorage.getItem("ACCESS_TOKEN")),
       },
     };
 
