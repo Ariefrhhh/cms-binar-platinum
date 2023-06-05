@@ -118,7 +118,7 @@ const Carlist = () => {
             List Car
           </NavLink>
         </Col>
-        <Col lg={10}>
+        <Col lg={10} className="listcontent">
           {addNewStatus ? (
             <div className="addNewToast">
               <Addnewnotification />
