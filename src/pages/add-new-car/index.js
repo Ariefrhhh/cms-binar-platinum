@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { Form } from "react-bootstrap";
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, Button, Col, Form, FormFeedback, FormGroup, FormText, Input, Label } from "reactstrap";
@@ -7,7 +6,7 @@ import "../../assets/CSS/addnewcar.css"
 
 
 
-const AddNewCarForm = () => {
+const Addnewcar= () => {
   const navigate = useNavigate();
   const [nameInputStatus, setNameInputStatus] = useState(false);
   const [priceInputStatus, setPriceInputStatus] = useState(false);
@@ -221,4 +220,4 @@ const AddNewCarForm = () => {
         
        
 
-export default AddNewCarForm;
+export default Addnewcar;
